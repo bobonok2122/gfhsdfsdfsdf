@@ -1,23 +1,12 @@
-const Discord = require("discord.js")
+const Discord = require('discord.js');
 const client = new Discord.Client();
-const YTDL = require('ytdl-core');
-const nodeopus = require('node-opus');
-const ffmpeg = require('ffmpeg');
-var servers = {};
-function play(connection, message, args) {
-  var server = servers[message.guild.id];
-  server.dispatcher = connection.playStream(YTDL(args[0]), {filter: "audioonly"});
-  server.queue.shift();
-  server.dispatcher.on("end", function() {
-    if (server.queue[0]) play(connection, message);
-    else connection.disconnect();
-  });
-}
+console.log("ٍSpam Bot By itzZa1D , VM#8866");
 
-
-client.on('message', message =>{
-  if(message.content.startsWith('join')){
-    const voiceChannel = message.member.voiceChannel
-    voiceChannel.join();
-    message.channel.send("تم الأتصال بالروم الصوتي")
-}})
+client.on("ready", () => {
+let channel =     client.channels.get("512936885270609944")
+setInterval(function() {
+channel.send(`Venom is the Best`);
+}, 25)
+})
+ 
+client.login(process.env.BOT_TOKEN);
